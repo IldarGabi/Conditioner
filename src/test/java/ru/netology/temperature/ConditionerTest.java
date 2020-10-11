@@ -4,61 +4,22 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class ConditionerTest {
+class ConditionerTest {
     @Test
-        void decreaseCurrentTemperature() {
+    void decreaseCurrentTemperature() {
         Conditioner conditioner = new Conditioner();
-        conditioner.currentTemperature = 20;
-        if (conditioner.currentTemperature == conditioner.minTemperature)
-            return;
-        conditioner.currentTemperature--;
-        if (conditioner.currentTemperature == conditioner.minTemperature)
-            return;
-        conditioner.currentTemperature--;
-        if (conditioner.currentTemperature == conditioner.minTemperature)
-            return;
-        conditioner.currentTemperature--;
-        if (conditioner.currentTemperature == conditioner.minTemperature)
-            return;
-        conditioner.currentTemperature--;
-        if (conditioner.currentTemperature == conditioner.minTemperature)
-            return;
-        conditioner.currentTemperature--;
-        System.out.println(conditioner.currentTemperature);
+        conditioner.currentTemperature = 19;
+        conditioner.minTemperature = 15;
+        conditioner.temperatureAfterDecrease = conditioner.decreaseCurrentTemperature();
+        System.out.println(conditioner.temperatureAfterDecrease);
     }
 
     @Test
-    public void increaseCurrentTemperature() {
+    void increaseCurrentTemperature() {
         Conditioner conditioner = new Conditioner();
-        conditioner.currentTemperature = 20;
-        if (conditioner.currentTemperature == conditioner.maxTemperature)
-            return;
-        conditioner.currentTemperature++;
-        if (conditioner.currentTemperature == conditioner.maxTemperature)
-            return;
-        conditioner.currentTemperature++;
-        if (conditioner.currentTemperature == conditioner.maxTemperature)
-            return;
-        conditioner.currentTemperature++;
-        if (conditioner.currentTemperature == conditioner.maxTemperature)
-            return;
-        conditioner.currentTemperature++;
-        if (conditioner.currentTemperature == conditioner.maxTemperature)
-            return;
-        conditioner.currentTemperature++;
-        System.out.println(conditioner.currentTemperature);
-    }
-
-    @Test
-    public void CurrentTemperature() {
-        Conditioner conditioner = new Conditioner();
-        conditioner.currentTemperature = 22;
-        conditioner.minTemperature = 21;
-        if (conditioner.currentTemperature == conditioner.minTemperature) {
-            System.out.println(conditioner.currentTemperature);
-            return;
-        }
-        for (conditioner.minTemperature = conditioner.minTemperature; conditioner.minTemperature <= conditioner.currentTemperature; conditioner.currentTemperature--)
-            System.out.println(conditioner.currentTemperature);
+        conditioner.currentTemperature = 19;
+        conditioner.maxTemperature = 25;
+        conditioner.temperatureAfterIncrease = conditioner.increaseCurrentTemperature();
+        System.out.println(conditioner.temperatureAfterIncrease);
     }
 }
