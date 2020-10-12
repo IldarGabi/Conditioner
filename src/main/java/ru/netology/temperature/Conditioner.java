@@ -1,26 +1,51 @@
 package ru.netology.temperature;
 
 public class Conditioner {
-    long maxTemperature;
-    long minTemperature;
-    long currentTemperature;
-    long temperatureAfterIncrease;
-    long temperatureAfterDecrease;
+    private long maxTemperature;
+    private long minTemperature;
+    private long currentTemperature;
+
+    public long getMaxTemperature() {
+        return maxTemperature;
+    }
+
+    public void setMaxTemperature(long maxTemperature) {
+        this.maxTemperature = maxTemperature;
+    }
+
+    public long getMinTemperature() {
+        return minTemperature;
+    }
+
+    public void setMinTemperature(long minTemperature) {
+        this.minTemperature = minTemperature;
+    }
+
+    public long getCurrentTemperature() {
+        return currentTemperature;
+    }
+
+    public void setCurrentTemperature(long currentTemperature) {
+        this.currentTemperature=currentTemperature;
+    }
 
     long decreaseCurrentTemperature() {
+        if (currentTemperature <= minTemperature)
+            return currentTemperature = minTemperature;
         if (currentTemperature > minTemperature)
-            return temperatureAfterDecrease = --currentTemperature;
-        if (currentTemperature == minTemperature)
-            return temperatureAfterDecrease = currentTemperature;
-        return temperatureAfterDecrease;
+            return --currentTemperature;
+
+        return currentTemperature;
     }
 
     long increaseCurrentTemperature() {
+        if (currentTemperature >= maxTemperature)
+            return currentTemperature = maxTemperature;
         if (currentTemperature < maxTemperature)
-            return temperatureAfterIncrease = ++currentTemperature;
-        if (currentTemperature == maxTemperature)
-            return temperatureAfterIncrease = currentTemperature;
-        return temperatureAfterIncrease;
+            return ++currentTemperature;
+
+        return currentTemperature;
     }
+
 }
 
